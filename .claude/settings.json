@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process \"c:\\\\Users\\\\Ibeawuchi\\\\Desktop\\\\naoberry_signature\\\\index.html\")"
+    ]
+  }
+}
