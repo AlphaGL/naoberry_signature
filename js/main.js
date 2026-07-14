@@ -142,17 +142,46 @@ PRODUCTS.forEach((src, i) => {
   shopGrid.appendChild(card);
 });
 
-/* ------------------------------------------------------------ gallery filter */
+/* ------------------------------------------------------------ gallery filter + show more
+   The "All" view shows GALLERY_PREVIEW items first; the button
+   reveals the rest. Category views always show everything in
+   that category. Add as many WORKS as you like — the first
+   GALLERY_PREVIEW entries are the storefront, order them best-first. */
+const GALLERY_PREVIEW = 12;
+const showMoreBtn = $("#showMore");
+let currentFilter = "all";
+let galleryExpanded = false;
+
+function updateGallery() {
+  let matched = 0;
+  $$(".work-item").forEach((item) => {
+    const matches = currentFilter === "all" || item.dataset.cat === currentFilter;
+    const capped =
+      matches && currentFilter === "all" && !galleryExpanded && matched >= GALLERY_PREVIEW;
+    if (matches) matched++;
+    item.classList.toggle("is-filtered-out", !matches || capped);
+  });
+  const hiddenCount =
+    currentFilter === "all" && !galleryExpanded ? Math.max(0, matched - GALLERY_PREVIEW) : 0;
+  showMoreBtn.style.display = hiddenCount > 0 ? "" : "none";
+  showMoreBtn.querySelector("span").textContent = `Show ${hiddenCount} more look${hiddenCount === 1 ? "" : "s"}`;
+}
+
 $("#filters").addEventListener("click", (e) => {
   const chip = e.target.closest(".chip");
   if (!chip) return;
   $$(".chip").forEach((c) => c.classList.remove("is-active"));
   chip.classList.add("is-active");
-  const f = chip.dataset.filter;
-  $$(".work-item").forEach((item) => {
-    item.classList.toggle("is-filtered-out", f !== "all" && item.dataset.cat !== f);
-  });
+  currentFilter = chip.dataset.filter;
+  updateGallery();
 });
+
+showMoreBtn.addEventListener("click", () => {
+  galleryExpanded = true;
+  updateGallery();
+});
+
+updateGallery();
 
 /* ------------------------------------------------------------ lightbox */
 const lightbox = $("#lightbox");

@@ -763,6 +763,12 @@ figure.is-empty .ph {
   .work-item__meta { opacity: 1; transform: none; } /* always show on touch */
 }
 
+.work__loadmore {
+  max-width: 1300px;
+  margin: 2.2rem auto 0;
+  text-align: center;
+}
+
 .work__more {
   max-width: 1300px; margin: 3rem auto 0;
   display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem;

@@ -9,7 +9,7 @@ appear on the site automatically — no code changes needed:
 | `naomi.jpg`    | "The Artist" section      | A photo of Naomi herself                  |
 | `class.jpg`    | Makeup classes section    | A training/class photo                    |
 | `logo.jpg`     | Phone home-screen icon    | Her logo / profile picture (square)       |
-| `work-01.jpg` → `work-12.jpg` | Portfolio gallery | Her 12 best looks (see categories below) |
+| `work-01.jpg` → `work-12.jpg` … | Portfolio gallery | Her best looks, best first (add as many as you want — see below) |
 | `product-01.jpg` → `product-10.jpg` | The Beauty Bar (shop) | Square shots of her 10 products |
 
 Gallery categories (set in `js/main.js`, edit freely):
@@ -18,6 +18,14 @@ Gallery categories (set in `js/main.js`, edit freely):
 - `work-03`, `work-07`, `work-11` → **Owanbe / gele**
 - `work-04`, `work-08`, `work-10` → **Glam / birthday**
 - `work-05`, `work-06` → **Before / After** pair
+
+To add MORE than 12: copy any line in the `WORKS` list in `js/main.js`,
+change the filename (e.g. `work-13.jpg`), set its category (`bridal`,
+`owanbe`, `glam`, `transform`), caption and shape (`ar`: `4/5`, `3/4` or
+`1/1`), and drop the matching photo here. The gallery shows the first 12
+and puts the rest behind a "Show more looks" button, so the page stays
+fast no matter how many you add. Order the list best-first — the first
+12 are the storefront.
 
 Products: no names or prices needed — just drop the 10 photos in as
 `product-01.jpg` … `product-10.jpg`. Each card shows the photo with a
