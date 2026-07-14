@@ -8,6 +8,7 @@ appear on the site automatically — no code changes needed:
 | `hero.jpg`     | Big hero image (top)      | Her strongest bridal shot (portrait)      |
 | `naomi.jpg`    | "The Artist" section      | A photo of Naomi herself                  |
 | `class.jpg`    | Makeup classes section    | A training/class photo                    |
+| `logo.jpg`     | Phone home-screen icon    | Her logo / profile picture (square)       |
 | `work-01.jpg` → `work-12.jpg` | Portfolio gallery | Her 12 best looks (see categories below) |
 | `product-01.jpg` → `product-10.jpg` | The Beauty Bar (shop) | Square shots of her 10 products |
 
