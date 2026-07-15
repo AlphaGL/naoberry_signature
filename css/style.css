@@ -818,6 +818,64 @@ figure.is-empty .ph {
 }
 .classes__photo img { width: 100%; height: 100%; object-fit: cover; }
 
+/* ============ CERTIFIED STUDENTS ============ */
+.alumni__headrow {
+  display: flex; flex-wrap: wrap; align-items: flex-end;
+  justify-content: space-between; gap: 1.2rem;
+  max-width: 1300px; margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+.alumni__blurb { max-width: 42ch; color: var(--cream-dim); font-size: 0.95rem; }
+
+.alumni__grid {
+  max-width: 1300px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+}
+@media (max-width: 900px) { .alumni__grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* pinned-photo look: alternating tilt that straightens on hover */
+.alum {
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(210, 162, 76, 0.25);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s var(--ease), border-color 0.5s;
+}
+.alum:nth-child(odd) { transform: rotate(-1.8deg); }
+.alum:nth-child(even) { transform: rotate(1.6deg) translateY(0.8rem); }
+.alum:hover { transform: rotate(0) translateY(-4px); border-color: var(--gold); }
+.alum img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.alum:hover img { transform: scale(1.05); }
+
+.alum__badge {
+  position: absolute; left: 0.7rem; right: 0.7rem; bottom: 0.7rem;
+  z-index: 2;
+  padding: 0.45rem 0.6rem;
+  text-align: center;
+  background: rgba(16, 10, 13, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 7px;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alumni__cta {
+  max-width: 1300px;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  text-align: center;
+}
+
 /* ============ SHOP / BEAUTY BAR ============ */
 .shop { background: var(--ink-2); }
 .shop__headrow {

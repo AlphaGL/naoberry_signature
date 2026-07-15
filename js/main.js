@@ -19,8 +19,10 @@ const IG = "https://www.instagram.com/naoberry_signature";
 const SITE_URL = "";
 
 const WORKS = [
+  /* — the first 12 entries are the storefront (shown before "Show more") — */
   { src: "images/work-01.jpg", cat: "bridal",    cap: "White wedding, soft glam", ar: "4/5",  link: IG },
   { src: "images/work-02.jpg", cat: "bridal",    cap: "Trad bride — coral & gold", ar: "3/4", link: IG },
+  { src: "images/work-13.jpg", cat: "bridal",    cap: "Here comes the bride", ar: "4/5", link: IG },
   { src: "images/work-03.jpg", cat: "owanbe",    cap: "Gele artistry", ar: "4/5", link: IG },
   { src: "images/work-04.jpg", cat: "glam",      cap: "Birthday shoot glam", ar: "1/1", link: IG },
   { src: "images/work-05.jpg", cat: "transform", cap: "Before the magic", ar: "4/5", link: IG },
@@ -31,6 +33,14 @@ const WORKS = [
   { src: "images/work-10.jpg", cat: "glam",      cap: "Editorial pink moment", ar: "4/5", link: IG },
   { src: "images/work-11.jpg", cat: "owanbe",    cap: "Red gele, zero apologies", ar: "3/4", link: IG },
   { src: "images/work-12.jpg", cat: "bridal",    cap: "The morning of", ar: "4/5", link: IG },
+  /* — everything below sits behind the "Show more looks" button — */
+  { src: "images/work-15.jpg", cat: "glam",      cap: "Flawless beat", ar: "4/5", link: IG },
+  { src: "images/work-16.jpg", cat: "glam",      cap: "Soft glam, sculpted", ar: "3/4", link: IG },
+  { src: "images/work-17.jpg", cat: "glam",      cap: "Golden hour glow", ar: "1/1", link: IG },
+  { src: "images/work-18.jpg", cat: "glam",      cap: "Bold lip energy", ar: "4/5", link: IG },
+  { src: "images/work-19.jpg", cat: "glam",      cap: "Everyday glam, elevated", ar: "3/4", link: IG },
+  { src: "images/collection-01.jpg", cat: "studio", cap: "The beauty shelf", ar: "4/5", link: IG },
+  { src: "images/collection-02.jpg", cat: "studio", cap: "The full Naoberry collection", ar: "1/1", link: IG },
 ];
 
 /* ------------------------------------------------------------
@@ -51,7 +61,12 @@ const CAT_LABEL = {
   owanbe: "Owanbe",
   glam: "Glam",
   transform: "Before / After",
+  studio: "Studio",
 };
+
+/* Certified students — photos of graduates holding their certificates.
+   Drop them in as images/student-01.jpg … ; bump the count for more. */
+const STUDENT_COUNT = 4;
 
 /* ------------------------------------------------------------ helpers */
 const $ = (s, root = document) => root.querySelector(s);
@@ -140,6 +155,25 @@ PRODUCTS.forEach((src, i) => {
       <span class="product__order">DM for price <span>↗</span></span>
     </div>`;
   shopGrid.appendChild(card);
+});
+
+/* ------------------------------------------------------------ build certified students */
+const alumniGrid = $("#alumni");
+Array.from(
+  { length: STUDENT_COUNT },
+  (_, i) => `images/student-${String(i + 1).padStart(2, "0")}.jpg`
+).forEach((src, i) => {
+  const card = document.createElement("figure");
+  card.className = "alum";
+  card.innerHTML = `
+    <img src="${src}" alt="Certified Naoberry Academy graduate holding her certificate" loading="lazy"
+         onerror="this.closest('figure').classList.add('is-empty')" />
+    <figcaption class="ph" aria-hidden="true">
+      <span class="ph__mono">N·S</span>
+      <span class="ph__hint">${src.replace("images/", "")}</span>
+    </figcaption>
+    <span class="alum__badge">✦ Certified · Naoberry Academy</span>`;
+  alumniGrid.appendChild(card);
 });
 
 /* ------------------------------------------------------------ gallery filter + show more

@@ -9,6 +9,10 @@ appear on the site automatically — no code changes needed:
 | `naomi.jpg`    | "The Artist" section      | A photo of Naomi herself                  |
 | `class.jpg`    | Makeup classes section    | A training/class photo                    |
 | `logo.jpg`     | Phone home-screen icon    | Her logo / profile picture (square)       |
+| `student-01.jpg` → `student-04.jpg` | Certified Students section | Graduates holding their certificates |
+| `collection-01.jpg`, `collection-02.jpg` | Gallery ("Studio" filter) | Makeup shelf + full collection |
+| `work-13.jpg` | Gallery (Bridal) | The new wedding photo |
+| `work-15.jpg` → `work-19.jpg` | Gallery (Glam) | The 5 new beauty makeup photos |
 | `work-01.jpg` → `work-12.jpg` … | Portfolio gallery | Her best looks, best first (add as many as you want — see below) |
 | `product-01.jpg` → `product-10.jpg` | The Beauty Bar (shop) | Square shots of her 10 products |
 
