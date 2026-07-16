@@ -20,27 +20,36 @@ const SITE_URL = "";
 
 const WORKS = [
   /* — the first 12 entries are the storefront (shown before "Show more") — */
-  { src: "images/work-01.jpg", cat: "bridal",    cap: "White wedding, soft glam", ar: "4/5",  link: IG },
-  { src: "images/work-02.jpg", cat: "bridal",    cap: "Trad bride — coral & gold", ar: "3/4", link: IG },
-  { src: "images/work-13.jpg", cat: "bridal",    cap: "Here comes the bride", ar: "4/5", link: IG },
-  { src: "images/work-03.jpg", cat: "owanbe",    cap: "Gele artistry", ar: "4/5", link: IG },
-  { src: "images/work-04.jpg", cat: "glam",      cap: "Birthday shoot glam", ar: "1/1", link: IG },
+  { src: "images/work-01.jpg", cat: "bridal",    cap: "Crowned for the aisle", ar: "4/5",  link: IG },
+  { src: "images/work-24.jpg", cat: "bridal",    cap: "The just-married glow", ar: "3/4", link: IG },
+  { src: "images/work-21.jpg", cat: "bridal",    cap: "Trad day, main character", ar: "3/4", link: IG },
+  { src: "images/work-02.jpg", cat: "bridal",    cap: "The white wedding glow", ar: "4/5", link: IG },
+  { src: "images/work-04.jpg", cat: "owanbe",    cap: "Gele artistry in teal", ar: "3/4", link: IG },
   { src: "images/work-05.jpg", cat: "transform", cap: "Before the magic", ar: "4/5", link: IG },
   { src: "images/work-06.jpg", cat: "transform", cap: "…and after ✨", ar: "4/5", link: IG },
-  { src: "images/work-07.jpg", cat: "owanbe",    cap: "Owanbe-ready", ar: "3/4", link: IG },
-  { src: "images/work-08.jpg", cat: "glam",      cap: "Soft glam, full attitude", ar: "4/5", link: IG },
-  { src: "images/work-09.jpg", cat: "bridal",    cap: "Igbo trad — isi agu & beads", ar: "1/1", link: IG },
-  { src: "images/work-10.jpg", cat: "glam",      cap: "Editorial pink moment", ar: "4/5", link: IG },
-  { src: "images/work-11.jpg", cat: "owanbe",    cap: "Red gele, zero apologies", ar: "3/4", link: IG },
-  { src: "images/work-12.jpg", cat: "bridal",    cap: "The morning of", ar: "4/5", link: IG },
+  { src: "images/work-26.jpg", cat: "glam",      cap: "Berry eyes, silk energy", ar: "3/4", link: IG },
+  { src: "images/work-18.jpg", cat: "owanbe",    cap: "White gele, coral beads", ar: "3/4", link: IG },
+  { src: "images/work-20.jpg", cat: "bridal",    cap: "Silver-beaded bride", ar: "4/5", link: IG },
+  { src: "images/work-08.jpg", cat: "glam",      cap: "Soft glam, full attitude", ar: "3/4", link: IG },
+  { src: "images/work-22.jpg", cat: "owanbe",    cap: "Mother of the day", ar: "4/5", link: IG },
   /* — everything below sits behind the "Show more looks" button — */
-  { src: "images/work-15.jpg", cat: "glam",      cap: "Flawless beat", ar: "4/5", link: IG },
-  { src: "images/work-16.jpg", cat: "glam",      cap: "Soft glam, sculpted", ar: "3/4", link: IG },
-  { src: "images/work-17.jpg", cat: "glam",      cap: "Golden hour glow", ar: "1/1", link: IG },
-  { src: "images/work-18.jpg", cat: "glam",      cap: "Bold lip energy", ar: "4/5", link: IG },
-  { src: "images/work-19.jpg", cat: "glam",      cap: "Everyday glam, elevated", ar: "3/4", link: IG },
-  { src: "images/collection-01.jpg", cat: "studio", cap: "The beauty shelf", ar: "4/5", link: IG },
-  { src: "images/collection-02.jpg", cat: "studio", cap: "The full Naoberry collection", ar: "1/1", link: IG },
+  { src: "images/work-03.jpg", cat: "bridal",    cap: "Trad bride — coral & gold", ar: "3/4", link: IG },
+  { src: "images/work-09.jpg", cat: "bridal",    cap: "The bride & her lilies", ar: "3/4", link: IG },
+  { src: "images/work-10.jpg", cat: "glam",      cap: "Rosy soft glam", ar: "4/5", link: IG },
+  { src: "images/work-07.jpg", cat: "bridal",    cap: "Coral crown, golden lids", ar: "3/4", link: IG },
+  { src: "images/work-13.jpg", cat: "bridal",    cap: "Bouquet in hand, heart full", ar: "3/4", link: IG },
+  { src: "images/work-15.jpg", cat: "glam",      cap: "Hot pink smoke", ar: "4/5", link: IG },
+  { src: "images/work-16.jpg", cat: "owanbe",    cap: "Berry velvet & coral", ar: "3/4", link: IG },
+  { src: "images/work-17.jpg", cat: "glam",      cap: "Soft waves, softer glam", ar: "4/5", link: IG },
+  { src: "images/work-11.jpg", cat: "bridal",    cap: "Coral crown close-up", ar: "1/1", link: IG },
+  { src: "images/work-27.jpg", cat: "glam",      cap: "Sculpted & soft", ar: "4/5", link: IG },
+  { src: "images/work-12.jpg", cat: "bridal",    cap: "The morning of", ar: "3/4", link: IG },
+  { src: "images/work-28.jpg", cat: "glam",      cap: "Amethyst shimmer", ar: "3/4", link: IG },
+  { src: "images/work-25.jpg", cat: "bridal",    cap: "Glow behind the bouquet", ar: "4/5", link: IG },
+  { src: "images/work-19.jpg", cat: "glam",      cap: "Mauve monochrome", ar: "3/4", link: IG },
+  { src: "images/work-29.jpg", cat: "owanbe",    cap: "Lady in red", ar: "4/5", link: IG },
+  { src: "images/collection-01.jpg", cat: "studio", cap: "Inside the studio — the beauty wall", ar: "3/4", link: IG },
+  { src: "images/collection-02.jpg", cat: "studio", cap: "The full Naoberry kit", ar: "3/4", link: IG },
 ];
 
 /* ------------------------------------------------------------
@@ -217,33 +226,74 @@ showMoreBtn.addEventListener("click", () => {
 
 updateGallery();
 
-/* ------------------------------------------------------------ lightbox */
+/* ------------------------------------------------------------ lightbox / gallery viewer
+   Professional viewer: ←/→ arrows, keyboard, swipe on touch,
+   counter, category tag. Navigation stays inside the active
+   filter (browsing "Bridal" only pages through bridal looks). */
 const lightbox = $("#lightbox");
 const lightboxImg = $("#lightboxImg");
 const lightboxCap = $("#lightboxCap");
+const lightboxTag = $("#lightboxTag");
+const lightboxCount = $("#lightboxCount");
 const lightboxLink = $("#lightboxLink");
 
-function openLightbox(w) {
-  // don't open the lightbox for placeholder tiles with no photo yet
-  const tile = $$(".work-item").find((i) => i.querySelector(`img[src="${w.src}"]`));
-  if (tile && tile.querySelector("figure.is-empty")) {
-    window.open(w.link, "_blank", "noopener");
-    return;
-  }
-  lightboxImg.src = w.src;
-  lightboxImg.alt = w.cap;
+let lbList = [];
+let lbIdx = 0;
+
+function renderLightbox() {
+  const w = lbList[lbIdx];
+  lightboxImg.style.opacity = 0;
+  const pre = new Image();
+  pre.onload = () => {
+    lightboxImg.src = w.src;
+    lightboxImg.alt = w.cap;
+    lightboxImg.style.opacity = 1;
+  };
+  pre.src = w.src;
   lightboxCap.textContent = w.cap;
+  lightboxTag.textContent = CAT_LABEL[w.cat];
+  lightboxCount.textContent =
+    `${String(lbIdx + 1).padStart(2, "0")} / ${String(lbList.length).padStart(2, "0")}`;
   lightboxLink.href = w.link;
+}
+
+function openLightbox(w) {
+  lbList = WORKS.filter((x) => currentFilter === "all" || x.cat === currentFilter);
+  lbIdx = Math.max(0, lbList.indexOf(w));
+  renderLightbox();
   lightbox.classList.add("is-open");
   document.body.style.overflow = "hidden";
+}
+function stepLightbox(dir) {
+  lbIdx = (lbIdx + dir + lbList.length) % lbList.length;
+  renderLightbox();
 }
 function closeLightbox() {
   lightbox.classList.remove("is-open");
   document.body.style.overflow = "";
 }
+
 $("#lightboxClose").addEventListener("click", closeLightbox);
+$("#lightboxPrev").addEventListener("click", () => stepLightbox(-1));
+$("#lightboxNext").addEventListener("click", () => stepLightbox(1));
 lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+
+document.addEventListener("keydown", (e) => {
+  if (!lightbox.classList.contains("is-open")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") stepLightbox(-1);
+  if (e.key === "ArrowRight") stepLightbox(1);
+});
+
+/* swipe to browse on touch screens */
+let touchX = null;
+lightbox.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+lightbox.addEventListener("touchend", (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 45) stepLightbox(dx < 0 ? 1 : -1);
+  touchX = null;
+}, { passive: true });
 
 /* ------------------------------------------------------------ scroll reveal */
 const io = new IntersectionObserver(
