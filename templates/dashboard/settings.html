@@ -1,0 +1,74 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Site Settings{% endblock %}
+
+{% block content %}
+<header class="db-head">
+  <div>
+    <h1>⚙ Site Settings</h1>
+    <p>Contact details, social links, homepage numbers and the three main photos.
+    Changes appear on the website as soon as you save.</p>
+  </div>
+</header>
+
+<form method="post" enctype="multipart/form-data" class="db-form">
+  {% csrf_token %}
+
+  <h2 class="db-form__section">📞 Contact</h2>
+  {% for field in form %}
+    {% if field.name == "phone_primary" or field.name == "phone_secondary" or field.name == "whatsapp_number" or field.name == "whatsapp_link" or field.name == "address_line1" or field.name == "address_line2" %}
+      <div class="db-field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+        {% for error in field.errors %}<small class="db-error">{{ error }}</small>{% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <h2 class="db-form__section">🔗 Social links</h2>
+  {% for field in form %}
+    {% if field.name == "instagram_url" or field.name == "facebook_url" %}
+      <div class="db-field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% for error in field.errors %}<small class="db-error">{{ error }}</small>{% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <h2 class="db-form__section">🔢 Homepage numbers</h2>
+  {% for field in form %}
+    {% if field.name == "stat_looks" or field.name == "stat_brides" or field.name == "stat_students" %}
+      <div class="db-field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+        {% for error in field.errors %}<small class="db-error">{{ error }}</small>{% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <h2 class="db-form__section">📷 Main photos</h2>
+  {% if obj.hero_image or obj.artist_image or obj.class_image %}
+    <div class="db-form__previews">
+      {% if obj.hero_image %}<figure><img src="{{ obj.hero_image.url }}" alt="" /><figcaption>Hero</figcaption></figure>{% endif %}
+      {% if obj.artist_image %}<figure><img src="{{ obj.artist_image.url }}" alt="" /><figcaption>Artist</figcaption></figure>{% endif %}
+      {% if obj.class_image %}<figure><img src="{{ obj.class_image.url }}" alt="" /><figcaption>Classes</figcaption></figure>{% endif %}
+    </div>
+  {% endif %}
+  {% for field in form %}
+    {% if field.name == "hero_image" or field.name == "artist_image" or field.name == "class_image" %}
+      <div class="db-field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+        {% for error in field.errors %}<small class="db-error">{{ error }}</small>{% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <div class="db-form__actions">
+    <button type="submit" class="db-btn db-btn--gold">💾 Save settings</button>
+  </div>
+</form>
+{% endblock %}

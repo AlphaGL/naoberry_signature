@@ -1,0 +1,23 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Delete {{ cfg.singular }}{% endblock %}
+
+{% block content %}
+<header class="db-head">
+  <h1>Delete this {{ cfg.singular }}?</h1>
+</header>
+
+<div class="db-confirm">
+  {% if cfg.has_image and obj.image %}
+    <img src="{{ obj.image.url }}" alt="" class="db-confirm__img" />
+  {% endif %}
+  <p><strong>{{ obj }}</strong></p>
+  <p class="db-confirm__warn">This removes it from the website permanently. If you might
+  want it back later, use <em>Hide</em> instead — hiding keeps the photo saved.</p>
+
+  <form method="post" class="db-confirm__actions">
+    {% csrf_token %}
+    <button type="submit" class="db-btn db-btn--danger">Yes, delete it</button>
+    <a class="db-btn" href="{% url 'dashboard:list' section %}">No, go back</a>
+  </form>
+</div>
+{% endblock %}

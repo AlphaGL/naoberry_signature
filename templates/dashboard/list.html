@@ -1,0 +1,49 @@
+{% extends "dashboard/base.html" %}
+{% block title %}{{ cfg.title }}{% endblock %}
+
+{% block content %}
+<header class="db-head">
+  <div>
+    <h1>{{ cfg.icon }} {{ cfg.title }}</h1>
+    <p>{{ cfg.help }}</p>
+  </div>
+  <a class="db-btn db-btn--gold" href="{% url 'dashboard:add' section %}">＋ Add {{ cfg.singular }}</a>
+</header>
+
+{% if items %}
+<div class="db-grid">
+  {% for obj in items %}
+    <div class="db-item {% if not obj.is_published %}is-hidden{% endif %}">
+      {% if cfg.has_image and obj.image %}
+        <a class="db-item__thumb" href="{% url 'dashboard:edit' section obj.pk %}">
+          <img src="{{ obj.image.url }}" alt="" loading="lazy" />
+        </a>
+      {% endif %}
+      <div class="db-item__body">
+        <p class="db-item__title">{{ obj }}</p>
+        <p class="db-item__meta">
+          Order: {{ obj.order }}
+          {% if obj.category %} · {{ obj.get_category_display }}{% endif %}
+          {% if not obj.is_published %} · <span class="db-badge">hidden</span>{% endif %}
+        </p>
+        <div class="db-item__actions">
+          <a class="db-btn db-btn--small" href="{% url 'dashboard:edit' section obj.pk %}">Edit</a>
+          <form method="post" action="{% url 'dashboard:toggle' section obj.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="db-btn db-btn--small">
+              {% if obj.is_published %}Hide{% else %}Show{% endif %}
+            </button>
+          </form>
+          <a class="db-btn db-btn--small db-btn--danger" href="{% url 'dashboard:delete' section obj.pk %}">Delete</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="db-empty">
+  <p>Nothing here yet.</p>
+  <a class="db-btn db-btn--gold" href="{% url 'dashboard:add' section %}">＋ Add your first {{ cfg.singular }}</a>
+</div>
+{% endif %}
+{% endblock %}

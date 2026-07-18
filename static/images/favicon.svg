@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Naoberry Signature monogram — gold N on ink, berry beauty-mark dot -->
+  <circle cx="32" cy="32" r="30" fill="#100a0d" stroke="#d2a24c" stroke-width="2.5"/>
+  <text x="31" y="43.5" font-family="Georgia, 'Times New Roman', serif" font-style="italic"
+        font-size="35" fill="#d2a24c" text-anchor="middle">N</text>
+  <circle cx="45.5" cy="44" r="4" fill="#b13d63"/>
+</svg>

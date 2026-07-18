@@ -1,0 +1,37 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Log in · Naoberry Signature</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}" />
+</head>
+<body class="db-login-page">
+
+  <div class="db-login">
+    <p class="db-login__brand"><span>N</span>aoberry <em>Signature</em></p>
+    <h1>Welcome back</h1>
+    <p class="db-login__sub">Log in to manage your website.</p>
+
+    {% if form.errors %}
+      <div class="db-msg db-msg--error">Wrong username or password — try again.</div>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <label for="id_username">Username</label>
+      <input type="text" name="username" id="id_username" class="db-input" autofocus required />
+      <label for="id_password">Password</label>
+      <input type="password" name="password" id="id_password" class="db-input" required />
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="db-btn db-btn--gold">Log in</button>
+    </form>
+  </div>
+
+</body>
+</html>

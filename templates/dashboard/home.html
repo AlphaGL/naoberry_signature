@@ -1,0 +1,33 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Overview{% endblock %}
+
+{% block content %}
+<header class="db-head">
+  <h1>Hello, {{ request.user.first_name|default:request.user.username }} 👋</h1>
+  <p>This is your website's control room. Tap a card to manage that part of the site.</p>
+</header>
+
+<div class="db-cards">
+  {% for card in cards %}
+    <a class="db-card" href="{% url 'dashboard:list' card.key %}">
+      <span class="db-card__icon">{{ card.icon }}</span>
+      <h2>{{ card.title }}</h2>
+      <p class="db-card__count">{{ card.published }} live · {{ card.count }} total</p>
+      <p class="db-card__help">{{ card.help }}</p>
+    </a>
+  {% endfor %}
+
+  <a class="db-card db-card--settings" href="{% url 'dashboard:settings' %}">
+    <span class="db-card__icon">⚙</span>
+    <h2>Site Settings</h2>
+    <p class="db-card__help">Phone numbers, WhatsApp, address, social links, the homepage
+    numbers, and the three main photos (hero, artist, classes).</p>
+  </a>
+</div>
+
+<div class="db-tip">
+  <strong>💡 How ordering works:</strong> every photo and quote has an <em>order</em>
+  number — lower numbers show first on the website. In the gallery, the first 12
+  visible looks are your storefront; the rest sit behind the “Show more looks” button.
+</div>
+{% endblock %}

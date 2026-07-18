@@ -1,0 +1,53 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>{% block title %}Dashboard{% endblock %} · Naoberry Signature</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}" />
+</head>
+<body>
+
+  <aside class="db-side">
+    <a class="db-side__brand" href="{% url 'dashboard:home' %}">
+      <span class="db-side__mark">N</span>
+      <span>aoberry <em>Admin</em></span>
+    </a>
+
+    <nav class="db-side__nav">
+      <a href="{% url 'dashboard:home' %}" class="{% if request.resolver_match.url_name == 'home' %}is-active{% endif %}">🏠 Overview</a>
+      <a href="{% url 'dashboard:list' 'gallery' %}" class="{% if request.resolver_match.kwargs.section == 'gallery' %}is-active{% endif %}">🖼 Gallery Looks</a>
+      <a href="{% url 'dashboard:list' 'products' %}" class="{% if request.resolver_match.kwargs.section == 'products' %}is-active{% endif %}">🛍 Products</a>
+      <a href="{% url 'dashboard:list' 'students' %}" class="{% if request.resolver_match.kwargs.section == 'students' %}is-active{% endif %}">🎓 Students</a>
+      <a href="{% url 'dashboard:list' 'testimonials' %}" class="{% if request.resolver_match.kwargs.section == 'testimonials' %}is-active{% endif %}">💬 Testimonials</a>
+      <a href="{% url 'dashboard:settings' %}" class="{% if request.resolver_match.url_name == 'settings' %}is-active{% endif %}">⚙ Site Settings</a>
+    </nav>
+
+    <div class="db-side__foot">
+      <a href="{% url 'home' %}" target="_blank" rel="noopener">↗ View website</a>
+      <form method="post" action="{% url 'dashboard:logout' %}">
+        {% csrf_token %}
+        <button type="submit">Log out</button>
+      </form>
+    </div>
+  </aside>
+
+  <main class="db-main">
+    {% if messages %}
+      <div class="db-messages">
+        {% for message in messages %}
+          <div class="db-msg db-msg--{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "dashboard/base.html" %}
+{% block title %}{% if obj %}Edit{% else %}Add{% endif %} {{ cfg.singular }}{% endblock %}
+
+{% block content %}
+<header class="db-head">
+  <div>
+    <h1>{% if obj %}Edit {{ cfg.singular }}{% else %}Add a new {{ cfg.singular }}{% endif %}</h1>
+    <p><a class="db-back" href="{% url 'dashboard:list' section %}">← Back to {{ cfg.title }}</a></p>
+  </div>
+</header>
+
+<form method="post" enctype="multipart/form-data" class="db-form">
+  {% csrf_token %}
+
+  {% if obj and cfg.has_image and obj.image %}
+    <div class="db-form__preview">
+      <img src="{{ obj.image.url }}" alt="Current photo" />
+      <span>Current photo — choose a new file below to replace it.</span>
+    </div>
+  {% endif %}
+
+  {% for field in form %}
+    <div class="db-field {% if field.errors %}has-error{% endif %}">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field }}
+      {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+      {% for error in field.errors %}<small class="db-error">{{ error }}</small>{% endfor %}
+    </div>
+  {% endfor %}
+
+  <div class="db-form__actions">
+    <button type="submit" class="db-btn db-btn--gold">💾 Save</button>
+    <a class="db-btn" href="{% url 'dashboard:list' section %}">Cancel</a>
+  </div>
+</form>
+{% endblock %}
